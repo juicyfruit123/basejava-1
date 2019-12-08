@@ -1,5 +1,9 @@
 package ru.javawebinar.basejava.model;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -23,6 +27,8 @@ public class Resume implements Comparable<Resume> {
         this.uuid = uuid;
         this.fullName = fullName;
     }
+
+    public static Map<SectionType,String> map = new EnumMap<>(SectionType.class);
 
     public String getUuid() {
         return uuid;
