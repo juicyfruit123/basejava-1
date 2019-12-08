@@ -1,9 +1,9 @@
 package ru.javawebinar.basejava.model;
 
 public enum ContactType {
-    TELEPHONE (""),
-    SKYPE(""),
-    MAIL(""),
+    TELEPHONE("Тел."),
+    SKYPE("СКАЙП"),
+    MAIL("ПОЧТА"),
     LINKEDIN(""),
     GITHUB(""),
     STACKOVERFLOW(""),

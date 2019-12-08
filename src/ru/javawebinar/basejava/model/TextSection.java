@@ -2,10 +2,11 @@ package ru.javawebinar.basejava.model;
 
 import java.util.Objects;
 
-public class TextSection {
+public class TextSection extends Section {
     private final String text;
 
     public TextSection(String text) {
+        Objects.requireNonNull(text, "uuid must not be null");
         this.text = text;
     }
 

@@ -1,7 +1,5 @@
 package ru.javawebinar.basejava.model;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,6 +15,10 @@ public class Resume implements Comparable<Resume> {
 
     private final String fullName;
 
+    public Map<ContactType, String> contactMap = new EnumMap<>(ContactType.class);
+
+    public Map<SectionType, Section> sectionMap = new EnumMap<>(SectionType.class);
+
     public Resume(String fullName) {
         this(UUID.randomUUID().toString(), fullName);
     }
@@ -28,7 +30,13 @@ public class Resume implements Comparable<Resume> {
         this.fullName = fullName;
     }
 
-    public static Map<SectionType,String> map = new EnumMap<>(SectionType.class);
+    public String getContact(ContactType type) {
+        return contactMap.get(type);
+    }
+
+    public Section getSection(SectionType type) {
+        return sectionMap.get(type);
+    }
 
     public String getUuid() {
         return uuid;

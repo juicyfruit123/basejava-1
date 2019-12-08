@@ -1,15 +1,16 @@
 package ru.javawebinar.basejava.model;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
-public class AchievementQualifications {
-    private final String[] text;
+public class AchievementQualifications extends Section {
+    private final List<String> text;
 
-    public AchievementQualifications(String[] text) {
+    public AchievementQualifications(List<String> text) {
         this.text = text;
     }
 
-    public String[] getText() {
+    public List<String> getText() {
         return text;
     }
 
@@ -18,18 +19,22 @@ public class AchievementQualifications {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AchievementQualifications that = (AchievementQualifications) o;
-        return Arrays.equals(text, that.text);
+        return Objects.equals(text, that.text);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(text);
+        return Objects.hash(text);
     }
 
     @Override
     public String toString() {
-        return "AchievementQualifications{" +
-                "text=" + Arrays.toString(text) +
-                '}';
+        String str = "";
+        StringBuilder sb = new StringBuilder(str);
+        for (String arr : text) {
+            sb.append(arr);
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }

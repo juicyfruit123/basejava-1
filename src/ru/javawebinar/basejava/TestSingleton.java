@@ -2,6 +2,10 @@ package ru.javawebinar.basejava;
 
 import ru.javawebinar.basejava.model.SectionType;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -26,10 +30,14 @@ public class TestSingleton {
         for (SectionType type : SectionType.values()) {
             System.out.println(type.getTitle());
         }*/
-        Map<SectionType, String> map = new EnumMap<>(SectionType.class);
 
-        for (Map.Entry<SectionType, String> entry : map.entrySet()) {
-            System.out.println(entry.getKey());
+        String d = "08/2016";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
+        try {
+            Date date = simpleDateFormat.parse(d);
+            System.out.println(simpleDateFormat.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 
