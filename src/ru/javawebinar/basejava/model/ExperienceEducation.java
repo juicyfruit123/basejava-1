@@ -15,7 +15,9 @@ public class ExperienceEducation extends Section {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
 
     public ExperienceEducation(String link, String startDate, String endDate, String text, String name) {
-        Objects.requireNonNull(startDate, "uuid must not be null");
+          this(link,startDate,endDate,text);
+          this.name = name;
+       /* Objects.requireNonNull(startDate, "uuid must not be null");
         Objects.requireNonNull(endDate, "uuid must not be null");
         Objects.requireNonNull(text, "uuid must not be null");
         Objects.requireNonNull(name, "uuid must not be null");
@@ -33,7 +35,7 @@ public class ExperienceEducation extends Section {
         simpleDateFormat.format(lastDate);
         this.firstDate = firstDate;
         this.lastDate = lastDate;
-        this.text = text;
+        this.text = text;*/
     }
 
     public ExperienceEducation(String link, String startDate, String endDate, String text) {
