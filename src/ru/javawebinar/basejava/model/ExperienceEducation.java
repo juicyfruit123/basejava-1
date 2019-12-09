@@ -1,58 +1,25 @@
 package ru.javawebinar.basejava.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
-public class ExperienceEducation extends Section {
+public class ExperienceEducation {
     private final Link link;
-    private final Date firstDate;
-    private final Date lastDate;
+    private final LocalDate firstDate;
+    private final LocalDate lastDate;
     private final String text;
-    private String name = null;
+    private String description = null;
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
-
-    public ExperienceEducation(String link, String startDate, String endDate, String text, String name) {
-          this(link,startDate,endDate,text);
-          this.name = name;
-       /* Objects.requireNonNull(startDate, "uuid must not be null");
-        Objects.requireNonNull(endDate, "uuid must not be null");
-        Objects.requireNonNull(text, "uuid must not be null");
-        Objects.requireNonNull(name, "uuid must not be null");
-        this.link = new Link(link);
-        this.name = name;
-        Date firstDate = null;
-        Date lastDate = null;
-        try {
-            firstDate = simpleDateFormat.parse(startDate);
-            lastDate = simpleDateFormat.parse(endDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        simpleDateFormat.format(firstDate);
-        simpleDateFormat.format(lastDate);
-        this.firstDate = firstDate;
-        this.lastDate = lastDate;
-        this.text = text;*/
+    public ExperienceEducation(String link, LocalDate firstDate, LocalDate lastDate, String text, String description) {
+        this(link, firstDate, lastDate, text);
+        this.description = description;
     }
 
-    public ExperienceEducation(String link, String startDate, String endDate, String text) {
-        Objects.requireNonNull(startDate, "uuid must not be null");
-        Objects.requireNonNull(endDate, "uuid must not be null");
+    public ExperienceEducation(String link, LocalDate firstDate, LocalDate lastDate, String text) {
+        Objects.requireNonNull(firstDate, "uuid must not be null");
+        Objects.requireNonNull(lastDate, "uuid must not be null");
         Objects.requireNonNull(text, "uuid must not be null");
         this.link = new Link(link);
-        Date firstDate = null;
-        Date lastDate = null;
-        try {
-            firstDate = simpleDateFormat.parse(startDate);
-            lastDate = simpleDateFormat.parse(endDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        simpleDateFormat.format(firstDate);
-        simpleDateFormat.format(lastDate);
         this.firstDate = firstDate;
         this.lastDate = lastDate;
         this.text = text;
@@ -62,21 +29,20 @@ public class ExperienceEducation extends Section {
         return link;
     }
 
-    public Date getFirstDate() {
+    public LocalDate getFirstDate() {
         return firstDate;
     }
 
-    public Date getLastDate() {
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDate getLastDate() {
         return lastDate;
     }
 
-
     public String getText() {
         return text;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override
@@ -88,22 +54,22 @@ public class ExperienceEducation extends Section {
                 Objects.equals(firstDate, that.firstDate) &&
                 Objects.equals(lastDate, that.lastDate) &&
                 Objects.equals(text, that.text) &&
-                Objects.equals(name, that.name);
+                Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(link, firstDate, lastDate, text, name);
+        return Objects.hash(link, firstDate, lastDate, text, description);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (name != null) {
-            return sb.append(link).append("\n").append(simpleDateFormat.format(firstDate)).append("\n").append(simpleDateFormat.format(lastDate))
-                    .append("\n").append(name).append("\n").append(text).toString();
+        if (description != null) {
+            return sb.append(link).append("\n").append(firstDate).append("\n").append(lastDate)
+                    .append("\n").append(description).append("\n").append(text).toString();
         } else
-            return sb.append(link).append("\n").append(simpleDateFormat.format(firstDate)).append("\n").append(simpleDateFormat.format(lastDate))
+            return sb.append(link).append("\n").append(firstDate).append("\n").append(lastDate)
                     .append("\n").append(text).toString();
     }
 }
