@@ -8,18 +8,18 @@ public class ExperienceEducation {
     private final LocalDate firstDate;
     private final LocalDate lastDate;
     private final String text;
-    private String description = null;
+    private String heading = null;
 
-    public ExperienceEducation(String link, LocalDate firstDate, LocalDate lastDate, String text, String description) {
-        this(link, firstDate, lastDate, text);
-        this.description = description;
+    public ExperienceEducation(String name,String url, LocalDate firstDate, LocalDate lastDate, String text, String heading) {
+        this(name,url, firstDate, lastDate, text);
+        this.heading = heading;
     }
 
-    public ExperienceEducation(String link, LocalDate firstDate, LocalDate lastDate, String text) {
+    public ExperienceEducation(String name ,String url, LocalDate firstDate, LocalDate lastDate, String text) {
         Objects.requireNonNull(firstDate, "uuid must not be null");
         Objects.requireNonNull(lastDate, "uuid must not be null");
         Objects.requireNonNull(text, "uuid must not be null");
-        this.link = new Link(link);
+        this.link = new Link(url,name);
         this.firstDate = firstDate;
         this.lastDate = lastDate;
         this.text = text;
@@ -33,8 +33,8 @@ public class ExperienceEducation {
         return firstDate;
     }
 
-    public String getDescription() {
-        return description;
+    public String getHeading() {
+        return heading;
     }
 
     public LocalDate getLastDate() {
@@ -54,20 +54,20 @@ public class ExperienceEducation {
                 Objects.equals(firstDate, that.firstDate) &&
                 Objects.equals(lastDate, that.lastDate) &&
                 Objects.equals(text, that.text) &&
-                Objects.equals(description, that.description);
+                Objects.equals(heading, that.heading);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(link, firstDate, lastDate, text, description);
+        return Objects.hash(link, firstDate, lastDate, text, heading);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (description != null) {
+        if (heading != null) {
             return sb.append(link).append("\n").append(firstDate).append("\n").append(lastDate)
-                    .append("\n").append(description).append("\n").append(text).toString();
+                    .append("\n").append(heading).append("\n").append(text).toString();
         } else
             return sb.append(link).append("\n").append(firstDate).append("\n").append(lastDate)
                     .append("\n").append(text).toString();

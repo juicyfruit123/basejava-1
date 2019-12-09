@@ -37,18 +37,18 @@ public class ResumeTestData {
         }
         resume.sections.put(SectionType.QUALIFICATIONS, new ListSection(listQualification));
         List<ExperienceEducation> experienceEducationList = new ArrayList<>();
-        experienceEducationList.add(new ExperienceEducation("http://javaops.ru/", LocalDate.of(2013, 10, 1), LocalDate.of(2019, 12, 1),
+        experienceEducationList.add(new ExperienceEducation("Java Online Projects", "http://javaops.ru/", LocalDate.of(2013, 10, 1), LocalDate.of(2019, 12, 1),
                 "Создание, организация и проведение Java онлайн проектов и стажировок.\n", "Автор проекта."));
-        experienceEducationList.add(new ExperienceEducation("https://www.wrike.com/", LocalDate.of(2014, 10, 1), LocalDate.of(2016, 1, 1),
+        experienceEducationList.add(new ExperienceEducation("Wrike", "https://www.wrike.com/", LocalDate.of(2014, 10, 1), LocalDate.of(2016, 1, 1),
                 "Проектирование и разработка онлайн платформы управления проектами Wrike (Java 8 API, Maven, Spring, MyBatis, Guava, Vaadin, PostgreSQL, Redis). Двухфакторная аутентификация, авторизация по OAuth1, OAuth2, JWT SSO.", "Старший разработчик (backend)"));
-        experienceEducationList.add(new ExperienceEducation("https://www.luxoft.com/", LocalDate.of(2010, 12, 1), LocalDate.of(2012, 4, 1), "Ведущий программист\n" +
+        experienceEducationList.add(new ExperienceEducation("Luxoft", "https://www.luxoft.com/", LocalDate.of(2010, 12, 1), LocalDate.of(2012, 4, 1), "Ведущий программист\n" +
                 "Участие в проекте Deutsche Bank CRM (WebLogic, Hibernate, Spring, Spring MVC, SmartGWT, GWT, Jasper, Oracle). Реализация клиентской и серверной части CRM. Реализация RIA-приложения для администрирования, мониторинга и анализа результатов в области алгоритмического трейдинга. JPA, Spring, Spring-MVC, GWT, ExtGWT (GXT), Highstock, Commet, HTML5.\n"));
         resume.sections.put(SectionType.EXPERIENCE, new ExperienceEducationSection(experienceEducationList));
 
 
         List<ExperienceEducation> educationList = new ArrayList<>();
-        educationList.add(new ExperienceEducation("https://www.coursera.org/learn/progfun1", LocalDate.of(2013, 3, 1), LocalDate.of(2013, 5, 1), "Functional Programming Principles in Scala\" by Martin Odersky"));
-        educationList.add(new ExperienceEducation("https://www.luxoft-training.ru/kurs/obektno-orientirovannyy_analiz_i_proektirovanie_na_uml.html",LocalDate.of(2011,3,1),LocalDate.of(2011,4,1), "Курс \"Объектно-ориентированный анализ ИС. Концептуальное моделирование на UML.\""));
+        educationList.add(new ExperienceEducation("Coursera", "https://www.coursera.org/learn/progfun1", LocalDate.of(2013, 3, 1), LocalDate.of(2013, 5, 1), "Functional Programming Principles in Scala\" by Martin Odersky"));
+        educationList.add(new ExperienceEducation("Luxoft", "https://www.luxoft-training.ru/kurs/obektno-orientirovannyy_analiz_i_proektirovanie_na_uml.html", LocalDate.of(2011, 3, 1), LocalDate.of(2011, 4, 1), "Курс \"Объектно-ориентированный анализ ИС. Концептуальное моделирование на UML.\""));
         resume.sections.put(SectionType.EDUCATION, new ExperienceEducationSection(educationList));
 
 
